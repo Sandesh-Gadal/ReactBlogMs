@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+<script src="https://unpkg.com/@themesberg/flowbite@1.1.1/dist/flowbite.bundle.js"></script>
 
 const Navbar = () => {
   return (
@@ -58,6 +59,7 @@ const Navbar = () => {
 </nav>
 
   )
+  
 }
 
 export default Navbar

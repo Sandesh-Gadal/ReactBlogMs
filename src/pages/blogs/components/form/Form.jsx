@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Form = ({type}) => {
+ 
+
   return (
     <div className="flex justify-center  w-screen h-screen">
     
