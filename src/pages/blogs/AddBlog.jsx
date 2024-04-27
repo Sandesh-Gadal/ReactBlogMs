@@ -1,12 +1,14 @@
 import React from 'react'
 import Layout from '../../components/layout/Layout'
-
+import axios from 'axios'
 import Form from './components/form/Form'
 import { baseUrl } from '../../../config'
+import { useNavigate } from 'react-router-dom'
 
 const AddBlog = () => {
+  const navigation = useNavigate()
   const handleCreateBlog = async (data)=>{
-const response = await axios.post(`${baseUrl}`,data,{
+const response = await axios.post(`${baseUrl}/blog`,data,{
   headers :{
     "Content-Type" : "multipart/form-data",
     "Authorization" : localStorage.getItem('token')
@@ -15,7 +17,7 @@ const response = await axios.post(`${baseUrl}`,data,{
 
 try {
   if (response.status === 201){
-    navigate('/')
+    navigation.navigate('/')
   }else{
     alert("Something went wrong")
   }
@@ -26,7 +28,7 @@ try {
 
   return (
     <Layout>
-      <Form type='Create'onsubmit={handleCreateBlog}/>
+      <Form type='Create'onSubmit={handleCreateBlog}/>
       </Layout>
   )
 }

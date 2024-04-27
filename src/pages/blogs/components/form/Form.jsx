@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Form = ({type,onsubmit}) => {
+const Form = ({type,onSubmit}) => {
  const [data,setData] = useState({
   title : '',
   subtitle : '',
@@ -19,7 +19,7 @@ const Form = ({type,onsubmit}) => {
  }
  const handleSubmit=(e)=>{
   e.preventDefault()
-  onsubmit(data)
+  onSubmit(data)
  }
 
 
@@ -33,19 +33,19 @@ const Form = ({type,onsubmit}) => {
           <div className="flex">
             <h1 className="font-bold uppercase text-5xl">{type} <br /> Blog</h1>
           </div>
-     <form action={handleSubmit}>
+     <form onSubmit={handleSubmit}>
      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
-            <input className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="text" placeholder="Title*" onChange={handleChange}  required/>
-            <input className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+            <input className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" name='title'
+                type="text" placeholder="Title" onChange={handleChange}  required/>
+            <input className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" name='subtitle'
                 type="text" placeholder="Subtitle*" onChange={handleChange} required />
             <input className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="file" onChange={handleChange} />
+                type="file" onChange={handleChange} name='image'/>
             <input className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="number" placeholder="Category*" onChange={handleChange} required/>
+                type="number" name='category' placeholder="Category*" onChange={handleChange} required/>
             </div>
             <div className="my-4">
-              <textarea placeholder="Description*" className="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" onChange={handleChange}></textarea>
+              <textarea placeholder="Description*" className="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" name='description' onChange={handleChange}></textarea>
             </div>
             <div className="my-2 w-1/2 lg:w-1/4">
               <button className="uppercase text-sm font-bold tracking-wide bg-blue-900 text-gray-100 p-3 rounded-lg w-full 
