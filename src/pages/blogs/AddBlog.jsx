@@ -6,7 +6,7 @@ import { baseUrl } from '../../../config'
 import { useNavigate } from 'react-router-dom'
 
 const AddBlog = () => {
-  const navigation = useNavigate()
+  const navigate = useNavigate()
   const handleCreateBlog = async (data)=>{
 const response = await axios.post(`${baseUrl}/blog`,data,{
   headers :{
@@ -17,11 +17,12 @@ const response = await axios.post(`${baseUrl}/blog`,data,{
 
 try {
   if (response.status === 201){
-    navigation.navigate('/')
+    navigate('/')
   }else{
     alert("Something went wrong")
   }
 } catch (error) {
+  alert('i m blackout')
   alert(error?.response?.data?.message)
 }
   }
