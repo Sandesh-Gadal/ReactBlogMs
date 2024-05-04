@@ -9,11 +9,13 @@ const AddBlog = () => {
   const navigate = useNavigate()
   const handleCreateBlog = async (data)=>{
 const response = await axios.post(`${baseUrl}/blog`,data,{
+
   headers :{
     "Content-Type" : "multipart/form-data",
     "Authorization" : localStorage.getItem('token')
   }
 })
+console.log(response)
 
 try {
   if (response.status === 201){
@@ -22,14 +24,13 @@ try {
     alert("Something went wrong")
   }
 } catch (error) {
-  alert('i m blackout')
   alert(error?.response?.data?.message)
 }
   }
 
   return (
     <Layout>
-      <Form type='Create'onSubmit={handleCreateBlog}/>
+      <Form type='Create' onSubmit={handleCreateBlog} buttonname='Submit'/>
       </Layout>
   )
 }
